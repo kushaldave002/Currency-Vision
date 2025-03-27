@@ -9,13 +9,16 @@ from werkzeug.utils import secure_filename
 from ultralytics import YOLO
 from fpdf import FPDF
 from collections import Counter
+
+
 import torch
-from torch.nn import Sequential
+from ultralytics.nn.modules.conv import Conv  # Import Conv
 from ultralytics.nn.tasks import DetectionModel
 from torch import nn
 
-# Add the necessary classes to the safe globals
-torch.serialization.add_safe_globals([DetectionModel, Conv, Sequential, nn.Module])
+# Add the necessary components to the safe globals
+torch.serialization.add_safe_globals([DetectionModel, Conv, nn.Module, nn.Sequential])
+
 
 
 
