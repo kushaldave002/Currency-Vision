@@ -10,9 +10,13 @@ from ultralytics import YOLO
 from fpdf import FPDF
 from collections import Counter
 import torch
+from torch.nn import Sequential
 from ultralytics.nn.tasks import DetectionModel
+from torch import nn
 
-torch.serialization.add_safe_globals([DetectionModel])
+# Add the necessary classes to the safe globals
+torch.serialization.add_safe_globals([DetectionModel, Sequential, nn.Module])
+
 
 
 
