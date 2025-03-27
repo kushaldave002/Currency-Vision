@@ -12,12 +12,12 @@ from collections import Counter
 
 
 import torch
-from ultralytics.nn.modules.conv import Conv  # Import Conv
-from ultralytics.nn.tasks import DetectionModel
-from torch import nn
+from ultralytics.nn.tasks import DetectionModel  # Import DetectionModel
+from torch import nn  # Standard PyTorch module
 
 # Add the necessary components to the safe globals
-torch.serialization.add_safe_globals([DetectionModel, Conv, nn.Module, nn.Sequential])
+torch.serialization.add_safe_globals([DetectionModel, nn.Module, nn.Sequential])
+
 
 
 
