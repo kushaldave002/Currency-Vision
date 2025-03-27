@@ -10,7 +10,10 @@ from ultralytics import YOLO
 from fpdf import FPDF
 from collections import Counter
 import torch
+from ultralytics.nn.tasks import DetectionModel
+
 torch.serialization.add_safe_globals([DetectionModel])
+
 
 
 app = Flask(__name__, static_folder='static')
