@@ -9,6 +9,9 @@ from werkzeug.utils import secure_filename
 from ultralytics import YOLO
 from fpdf import FPDF
 from collections import Counter
+import torch
+torch.serialization.add_safe_globals([DetectionModel])
+
 
 app = Flask(__name__, static_folder='static')
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
