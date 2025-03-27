@@ -28,7 +28,7 @@ app = Flask(__name__, static_folder='static')
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-model = YOLO("best (1).pt")  # Update path if needed
+model = YOLO("best (1).pt",weights_only=False)  # Update path if needed
 
 # Define class mapping
 class_mapping = {
