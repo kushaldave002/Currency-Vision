@@ -2,5 +2,5 @@ Flask==2.0.1
 gunicorn==20.1.0
 APScheduler==3.7.0
 Werkzeug==2.0.1
-boto3==1.18.67
+boto3==1.18.0
 fpdf2==2.8.2
