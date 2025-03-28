@@ -17,8 +17,7 @@ app = Flask(__name__, static_folder='static')
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-model = YOLO("best (1).pt",weights_only=False)  # Update path if needed
-
+model = YOLO("best (1).pt")  # No weights_only parameter
 # Define class mapping
 class_mapping = {
     0: {"label": "50 USD", "currency": "USD", "denomination": 50},
