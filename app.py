@@ -17,7 +17,9 @@ app = Flask(__name__, static_folder='static')
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-model = YOLO("best (1).pt")  # No weights_only parameter
+# Load YOLO model with weights
+model = YOLO("yolov8n.pt")  # Replace with your base model (e.g., yolov8s.pt, yolov8m.pt)
+model.model.load_state_dict(torch.load("best_weights_only.pt", map_location="cpu"))
 # Define class mapping
 class_mapping = {
     0: {"label": "50 USD", "currency": "USD", "denomination": 50},
