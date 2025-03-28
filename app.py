@@ -17,9 +17,18 @@ app = Flask(__name__, static_folder='static')
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-# Load YOLO model with weights
+import torch
+from ultralytics import YOLO
+from ultralytics.nn.tasks import DetectionModel
+
+# Allow DetectionModel to be loaded safely
+torch.serialization.add_safe_globals([DetectionModel])
+
+# Initialize base model and load custom weights
 model = YOLO("yolov8n.pt")  # Replace with your base model (e.g., yolov8s.pt, yolov8m.pt)
 model.model.load_state_dict(torch.load("best_weights_only.pt", map_location="cpu"))
+
+
 # Define class mapping
 class_mapping = {
     0: {"label": "50 USD", "currency": "USD", "denomination": 50},
